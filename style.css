@@ -9,170 +9,417 @@ html{
 }
 
 body{
-    background:#050505;
+    background:#030303;
     color:#fff;
-    font-family:Arial,Helvetica,sans-serif;
+    font-family:'Poppins',sans-serif;
     overflow-x:hidden;
 }
 
-/* Arka plan */
-body::before{
-    content:"";
+/* Arka Plan */
+
+.background{
     position:fixed;
     inset:0;
     background:
-    radial-gradient(circle at top,#550000 0%,#180000 25%,#000000 70%);
-    animation:bgPulse 6s infinite alternate;
-    z-index:-3;
+    radial-gradient(circle at top,#3b0000 0%,#120000 30%,#000000 80%);
+    z-index:-5;
 }
 
-@keyframes bgPulse{
-    from{filter:brightness(.8);}
-    to{filter:brightness(1.15);}
+/* Grid */
+
+.grid{
+    position:fixed;
+    inset:0;
+
+    background-image:
+
+    linear-gradient(rgba(255,0,0,.08) 1px,transparent 1px),
+
+    linear-gradient(90deg,rgba(255,0,0,.08) 1px,transparent 1px);
+
+    background-size:45px 45px;
+
+    animation:gridMove 15s linear infinite;
+
+    z-index:-4;
+}
+
+@keyframes gridMove{
+
+from{
+
+transform:translateY(0);
+
+}
+
+to{
+
+transform:translateY(45px);
+
+}
+
 }
 
 /* Sis */
+
 .fog{
-    position:fixed;
-    inset:0;
-    background:
-    radial-gradient(circle,#ffffff08 0%,transparent 70%);
-    background-size:500px 500px;
-    animation:fogMove 30s linear infinite;
-    opacity:.35;
-    pointer-events:none;
-    z-index:-2;
+
+position:fixed;
+
+inset:0;
+
+background:
+
+radial-gradient(circle,#ffffff08 0%,transparent 70%);
+
+background-size:500px 500px;
+
+animation:fogMove 30s linear infinite;
+
+opacity:.25;
+
+pointer-events:none;
+
+z-index:-3;
+
 }
 
 @keyframes fogMove{
-    from{
-        transform:translateX(-200px);
-    }
-    to{
-        transform:translateX(200px);
-    }
+
+from{
+
+transform:translateX(-250px);
+
 }
 
-/* Üstte kırmızı parlama */
-.blood-overlay{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:180px;
-    background:linear-gradient(#7a0000,#300000,transparent);
-    opacity:.55;
-    pointer-events:none;
-    z-index:-1;
+to{
+
+transform:translateX(250px);
+
 }
 
-/* Ana bölüm */
+}
+
+/* Hero */
+
 .hero{
-    min-height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:20px;
+
+height:100vh;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:20px;
+
 }
 
 .logo{
-    font-size:90px;
-    color:#ff0000;
-    letter-spacing:8px;
-    text-shadow:
-        0 0 10px red,
-        0 0 25px red,
-        0 0 45px darkred;
-    animation:logoGlow 2s infinite alternate;
+
+font-family:'Orbitron',sans-serif;
+
+font-size:100px;
+
+letter-spacing:10px;
+
+color:#ff0000;
+
+text-shadow:
+
+0 0 15px red,
+
+0 0 35px red,
+
+0 0 70px darkred;
+
+animation:glow 2s infinite alternate;
+
 }
 
-@keyframes logoGlow{
-    from{
-        text-shadow:
-        0 0 10px red,
-        0 0 20px red;
-    }
-    to{
-        text-shadow:
-        0 0 25px red,
-        0 0 50px red,
-        0 0 80px darkred;
-    }
+@keyframes glow{
+
+from{
+
+text-shadow:
+
+0 0 10px red,
+
+0 0 25px red;
+
 }
+
+to{
+
+text-shadow:
+
+0 0 20px red,
+
+0 0 50px red,
+
+0 0 90px darkred;
+
+}
+
+} 
+/* Typing */
 
 #typing{
-    margin-top:20px;
-    color:#fff;
-    font-size:32px;
-    min-height:45px;
+
+margin-top:25px;
+
+font-size:34px;
+
+color:white;
+
+min-height:45px;
+
+letter-spacing:2px;
+
 }
 
-.quote{
-    margin-top:20px;
-    color:#cfcfcf;
-    font-style:italic;
+/* Alt Yazı */
+
+.subtitle{
+
+margin-top:15px;
+
+font-size:18px;
+
+color:#bdbdbd;
+
 }
+
+/* Butonlar */
 
 .buttons{
-    margin-top:40px;
+
+margin-top:40px;
+
 }
 
 .buttons a{
-    display:inline-block;
-    margin:10px;
-    padding:14px 35px;
-    border:2px solid #ff0000;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
-    transition:.3s;
-    box-shadow:0 0 15px red;
+
+display:inline-block;
+
+padding:14px 35px;
+
+margin:10px;
+
+border:2px solid #ff0000;
+
+border-radius:10px;
+
+text-decoration:none;
+
+color:white;
+
+font-weight:600;
+
+transition:.35s;
+
+box-shadow:0 0 15px red;
+
 }
 
 .buttons a:hover{
-    background:#ff0000;
-    color:black;
-    transform:translateY(-4px);
-    box-shadow:0 0 30px red;
+
+background:#ff0000;
+
+color:black;
+
+transform:translateY(-5px);
+
+box-shadow:0 0 35px red;
+
 }
 
-/* Projeler */
-#projects{
-    padding:100px 20px;
-    text-align:center;
+/* Bölümler */
+
+.about,
+.skills,
+.projects{
+
+padding:120px 10%;
+
+text-align:center;
+
 }
 
-#projects h2{
-    color:#ff0000;
-    margin-bottom:40px;
-    font-size:42px;
+.about h2,
+.skills h2,
+.projects h2{
+
+font-size:42px;
+
+margin-bottom:40px;
+
+color:#ff0000;
+
+font-family:'Orbitron',sans-serif;
+
+}
+
+.about p{
+
+max-width:900px;
+
+margin:auto;
+
+line-height:2;
+
+color:#d0d0d0;
+
+font-size:18px;
+
+} 
+/* Kartlar */
+
+.cards{
+
+display:flex;
+
+justify-content:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+
+margin-top:50px;
+
 }
 
 .card{
-    max-width:700px;
-    margin:25px auto;
-    padding:25px;
-    background:#111;
-    border:1px solid #550000;
-    border-radius:15px;
-    box-shadow:0 0 20px #66000066;
-    transition:.3s;
+
+width:260px;
+
+padding:30px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,0,0,.35);
+
+border-radius:15px;
+
+backdrop-filter:blur(8px);
+
+transition:.35s;
+
+box-shadow:0 0 20px rgba(255,0,0,.15);
+
 }
 
 .card:hover{
-    transform:scale(1.03);
-    box-shadow:0 0 30px red;
+
+transform:translateY(-10px) scale(1.05);
+
+border-color:#ff0000;
+
+box-shadow:
+
+0 0 20px red,
+
+0 0 45px rgba(255,0,0,.5);
+
 }
 
 .card h3{
-    color:#ff4444;
-    margin-bottom:15px;
+
+font-size:24px;
+
+color:#ff4444;
+
 }
 
+/* Footer */
+
 footer{
-    text-align:center;
-    padding:40px;
-    color:#888;
+
+padding:40px;
+
+text-align:center;
+
+color:#888;
+
+border-top:1px solid rgba(255,0,0,.2);
+
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#050505;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#700000;
+
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#ff0000;
+
+}
+
+/* Mobil */
+
+@media(max-width:768px){
+
+.logo{
+
+font-size:60px;
+
+letter-spacing:5px;
+
+}
+
+#typing{
+
+font-size:24px;
+
+}
+
+.buttons a{
+
+display:block;
+
+margin:15px auto;
+
+width:220px;
+
+}
+
+.about,
+.skills,
+.projects{
+
+padding:80px 20px;
+
+}
+
+.card{
+
+width:100%;
+
+max-width:350px;
+
+}
+
 }
