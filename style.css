@@ -2,65 +2,177 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    background:#000;
-    color:white;
-    overflow:hidden;
+    background:#050505;
+    color:#fff;
+    font-family:Arial,Helvetica,sans-serif;
+    overflow-x:hidden;
 }
 
-.background{
+/* Arka plan */
+body::before{
+    content:"";
     position:fixed;
-    width:100%;
-    height:100%;
+    inset:0;
     background:
-    radial-gradient(circle at center,#400000 0%,#120000 35%,#000 100%);
+    radial-gradient(circle at top,#550000 0%,#180000 25%,#000000 70%);
+    animation:bgPulse 6s infinite alternate;
+    z-index:-3;
 }
 
-.container{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
+@keyframes bgPulse{
+    from{filter:brightness(.8);}
+    to{filter:brightness(1.15);}
+}
+
+/* Sis */
+.fog{
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle,#ffffff08 0%,transparent 70%);
+    background-size:500px 500px;
+    animation:fogMove 30s linear infinite;
+    opacity:.35;
+    pointer-events:none;
+    z-index:-2;
+}
+
+@keyframes fogMove{
+    from{
+        transform:translateX(-200px);
+    }
+    to{
+        transform:translateX(200px);
+    }
+}
+
+/* Üstte kırmızı parlama */
+.blood-overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:180px;
+    background:linear-gradient(#7a0000,#300000,transparent);
+    opacity:.55;
+    pointer-events:none;
+    z-index:-1;
+}
+
+/* Ana bölüm */
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
     text-align:center;
+    padding:20px;
 }
 
 .logo{
-    font-size:70px;
+    font-size:90px;
     color:#ff0000;
+    letter-spacing:8px;
     text-shadow:
-    0 0 10px red,
-    0 0 25px darkred,
-    0 0 50px red;
-    margin-bottom:20px;
+        0 0 10px red,
+        0 0 25px red,
+        0 0 45px darkred;
+    animation:logoGlow 2s infinite alternate;
+}
+
+@keyframes logoGlow{
+    from{
+        text-shadow:
+        0 0 10px red,
+        0 0 20px red;
+    }
+    to{
+        text-shadow:
+        0 0 25px red,
+        0 0 50px red,
+        0 0 80px darkred;
+    }
 }
 
 #typing{
-    color:white;
-    font-size:30px;
-    margin-bottom:20px;
+    margin-top:20px;
+    color:#fff;
+    font-size:32px;
+    min-height:45px;
 }
 
-.about{
-    color:#bfbfbf;
-    margin-bottom:35px;
-    font-size:18px;
+.quote{
+    margin-top:20px;
+    color:#cfcfcf;
+    font-style:italic;
+}
+
+.buttons{
+    margin-top:40px;
 }
 
 .buttons a{
-    text-decoration:none;
-    color:white;
-    border:2px solid red;
-    padding:12px 28px;
-    margin:10px;
     display:inline-block;
-    border-radius:10px;
+    margin:10px;
+    padding:14px 35px;
+    border:2px solid #ff0000;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
     transition:.3s;
+    box-shadow:0 0 15px red;
 }
 
 .buttons a:hover{
-    background:red;
-    box-shadow:0 0 20px red;
+    background:#ff0000;
+    color:black;
+    transform:translateY(-4px);
+    box-shadow:0 0 30px red;
+}
+
+/* Projeler */
+#projects{
+    padding:100px 20px;
+    text-align:center;
+}
+
+#projects h2{
+    color:#ff0000;
+    margin-bottom:40px;
+    font-size:42px;
+}
+
+.card{
+    max-width:700px;
+    margin:25px auto;
+    padding:25px;
+    background:#111;
+    border:1px solid #550000;
+    border-radius:15px;
+    box-shadow:0 0 20px #66000066;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:scale(1.03);
+    box-shadow:0 0 30px red;
+}
+
+.card h3{
+    color:#ff4444;
+    margin-bottom:15px;
+}
+
+footer{
+    text-align:center;
+    padding:40px;
+    color:#888;
 }
