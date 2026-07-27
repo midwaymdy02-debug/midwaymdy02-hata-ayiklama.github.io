@@ -1,42 +1,19 @@
-const texts = [
-    "Python Developer",
-    "Minecraft Developer",
-    "Web Developer",
-    "Midway"
-];
+const text = "Python Developer • Minecraft Developer";
 
-let count = 0;
-let index = 0;
-let currentText = "";
-let letter = "";
+let i = 0;
 
-(function type() {
+function type(){
 
-    if (count === texts.length) {
-        count = 0;
-    }
+    if(i < text.length){
 
-    currentText = texts[count];
+        document.getElementById("typing").innerHTML += text.charAt(i);
 
-    letter = currentText.slice(0, ++index);
+        i++;
 
-    document.getElementById("typing").textContent = letter;
-
-    if (letter.length === currentText.length) {
-
-        setTimeout(() => {
-
-            index = 0;
-            count++;
-
-            setTimeout(type, 500);
-
-        }, 1500);
-
-    } else {
-
-        setTimeout(type, 100);
+        setTimeout(type,80);
 
     }
 
-})();
+}
+
+type();
