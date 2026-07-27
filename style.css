@@ -2,133 +2,65 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 body{
-    background:#050505;
-    font-family:Arial, Helvetica, sans-serif;
+    background:#000;
     color:white;
     overflow:hidden;
 }
 
 .background{
     position:fixed;
-    inset:0;
+    width:100%;
+    height:100%;
     background:
-        radial-gradient(circle at center,#500000 0%,#120000 30%,#000000 70%);
-    animation:pulse 6s infinite alternate;
-}
-
-@keyframes pulse{
-
-    from{
-        filter:brightness(0.8);
-    }
-
-    to{
-        filter:brightness(1.2);
-    }
-
+    radial-gradient(circle at center,#400000 0%,#120000 35%,#000 100%);
 }
 
 .container{
-
     position:absolute;
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
     text-align:center;
-    z-index:10;
-
 }
 
 .logo{
-
-    font-size:90px;
+    font-size:70px;
     color:#ff0000;
-    letter-spacing:8px;
-
     text-shadow:
     0 0 10px red,
-    0 0 20px red,
-    0 0 40px darkred;
-
-    animation:glow 2s infinite alternate;
-
-}
-
-@keyframes glow{
-
-from{
-
-text-shadow:
-0 0 10px red,
-0 0 20px red;
-
-}
-
-to{
-
-text-shadow:
-0 0 20px red,
-0 0 40px red,
-0 0 70px darkred;
-
-}
-
+    0 0 25px darkred,
+    0 0 50px red;
+    margin-bottom:20px;
 }
 
 #typing{
-
-margin-top:25px;
-font-size:34px;
-color:#ffffff;
-
+    color:white;
+    font-size:30px;
+    margin-bottom:20px;
 }
 
-.quote{
-
-margin-top:25px;
-font-size:20px;
-opacity:.8;
-font-style:italic;
-
-}
-
-.buttons{
-
-margin-top:45px;
-
+.about{
+    color:#bfbfbf;
+    margin-bottom:35px;
+    font-size:18px;
 }
 
 .buttons a{
-
-display:inline-block;
-margin:12px;
-padding:15px 40px;
-
-text-decoration:none;
-
-color:white;
-
-border:2px solid red;
-
-border-radius:10px;
-
-transition:.35s;
-
-box-shadow:0 0 15px red;
-
+    text-decoration:none;
+    color:white;
+    border:2px solid red;
+    padding:12px 28px;
+    margin:10px;
+    display:inline-block;
+    border-radius:10px;
+    transition:.3s;
 }
 
 .buttons a:hover{
-
-background:red;
-
-color:black;
-
-transform:scale(1.08);
-
-box-shadow:0 0 35px red;
-
+    background:red;
+    box-shadow:0 0 20px red;
 }
