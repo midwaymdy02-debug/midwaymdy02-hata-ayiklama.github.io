@@ -37,3 +37,10 @@ function animate() {
 }
 
 animate();
+const texts = [
+    "MIDWAY",
+    "Creating Digital Worlds",
+    "Python • Java • Web",
+    "Minecraft Developer",
+    "Welcome To My Portfolio"
+];
